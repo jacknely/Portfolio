@@ -109,6 +109,9 @@ virt/
 ENV/
 env.bak/
 venv.bak/
+Scripts/
+Lib/
+Include/
 
 # Spyder project settings
 .spyderproject
