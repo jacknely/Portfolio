@@ -1,8 +1,21 @@
 from django.db import models
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField()
-    technology = models.CharField(max_length=20)
-    image = models.FilePathField(path="/img")
+    description = RichTextUploadingField(blank=True, default='')
+    summary = models.TextField(max_length=120, blank=True, default='')
+    date = models.DateField(blank=True, default='')
+    technology = models.CharField(max_length=120)
+    image = models.FileField(upload_to='images/')
+    github = models.CharField(max_length=100, blank=True, default='')
+    link = models.CharField(max_length=100, blank=True, default='')
+    priority = models.IntegerField(blank=True, default=1000)
+
+    def __str__(self):
+        return self.title
+
+    def preview(self):
+        return self.description[:50]
