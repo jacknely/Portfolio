@@ -19,12 +19,12 @@
         <br>
         {% if project.github|length %}
         <h4>GitHub:</h4>
-        <p>{{ project.github }}</p>
+        <p><a href="{{ project.github }}" target="_blank">{{ project.github }}</a></p>
         {% endif %}
         {% if project.link|length %}
         <br>
-        Link:</h4>
-        <p>{{ project.link }}</p>
+        <h4>Link:</h4>
+        <p><a href="{{ project.link }}" target="_blank">{{ project.link }}</a></p>
         {% endif %}
     </div>
 </div>
