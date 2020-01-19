@@ -128,3 +128,7 @@ dmypy.json
 
 # misc
 app/open_postcode_geo.csv
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

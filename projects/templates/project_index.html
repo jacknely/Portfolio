@@ -10,7 +10,7 @@
             <img class="card-img-top" height="220" src="{{ project.image.url }}">
             <div class="card-body">
                 <h5 class="card-title">{{ project.title }}</h5>
-                <p class="card-text">{{ project.summary }}</p>
+                <p class="card-text" style="font-size:1rem!important;">{{ project.summary }}</p>
                 <a href="{% url 'project_detail' project.pk %}"
                    class="btn btn-primary">
                     Read More

@@ -1,13 +1,14 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
+from datetime import date
 
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
     description = RichTextUploadingField(blank=True, default='')
     summary = models.TextField(max_length=120, blank=True, default='')
-    date = models.DateField(blank=True, default='')
+    date = models.DateField(blank=True, default=date(1111, 11, 11))
     technology = models.CharField(max_length=120)
     image = models.FileField(upload_to='images/')
     github = models.CharField(max_length=100, blank=True, default='')
