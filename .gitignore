@@ -82,7 +82,7 @@ instance/
 docs/_build/
 
 #custom
-Portfolio/settings.py
+/Portfolio/settings.py
 
 # PyBuilder
 target/
