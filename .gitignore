@@ -81,8 +81,10 @@ instance/
 # Sphinx documentation
 docs/_build/
 
-#custom
+# Custom
 /Portfolio/settings.py
+Portfolio/settings.py
+*/settings.py
 
 # PyBuilder
 target/
