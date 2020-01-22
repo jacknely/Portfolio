@@ -142,7 +142,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-
+AWS_ACCESS_KEY_ID = os.environ.get('AKIASA2VMTNLGFDKBLGW')
+AWS_SECRET_ACCESS_KEY = os.environ.get('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')
 AWS_STORAGE_BUCKET_NAME = 'jacknelson-heroku'
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
