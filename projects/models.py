@@ -14,6 +14,7 @@ class Project(models.Model):
     github = models.CharField(max_length=100, blank=True, default='')
     link = models.CharField(max_length=100, blank=True, default='')
     priority = models.IntegerField(blank=True, default=1000)
+    published = models.IntegerField(blank=True, default=0)
 
     def __str__(self):
         return self.title
