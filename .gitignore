@@ -136,3 +136,4 @@ app/open_postcode_geo.csv
 #.elasticbeanstalk/*
 #!.elasticbeanstalk/*.cfg.yml
 #!.elasticbeanstalk/*.global.yml
+.env
