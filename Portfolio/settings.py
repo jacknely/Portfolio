@@ -19,7 +19,6 @@ from decouple import config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -31,9 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['jacknelson.herokuapp.com']
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -57,7 +54,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-	'django.middleware.security.SecurityMiddleware',
     #'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
@@ -128,16 +124,22 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+if config('AWS_ACCESS_KEY_ID'):
+    AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+else:
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+
 AWS_STORAGE_BUCKET_NAME = 'jacknelson-heroku'
+AWS_QUERYSTRING_AUTH = False
+AWS_QUERYSTRING_EXPIRE = '157784630'
+
 
 """
 AWS_ACCESS_KEY_ID = os.environ.get('AKIAICONVO3PH323QOHA')
 AWS_SECRET_ACCESS_KEY = os.environ.get('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')
-AWS_STORAGE_BUCKET_NAME = 'jacknelson-heroku'
-AWS_QUERYSTRING_AUTH = False
-AWS_QUERYSTRING_EXPIRE = '157784630'
+
 """
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
@@ -157,5 +159,5 @@ django_heroku.settings(locals())
 #del DATABASES['default']['OPTIONS']['sslmode']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = False
+SECURE_SSL_REDIRECT = True
 
