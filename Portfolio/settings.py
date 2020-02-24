@@ -12,16 +12,13 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import dj_database_url
-import dotenv
 import django_heroku
+from decouple import config
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-dotenv_file = os.path.join(BASE_DIR, ".env")
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -118,13 +115,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
@@ -135,18 +128,24 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-AWS_ACCESS_KEY_ID = os.environ.get('AKIASA2VMTNLGFDKBLGW')
-AWS_SECRET_ACCESS_KEY = os.environ.get('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')
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = 'jacknelson-heroku'
+
+"""
+AWS_ACCESS_KEY_ID = os.environ.get('AKIAICONVO3PH323QOHA')
+AWS_SECRET_ACCESS_KEY = os.environ.get('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')
 AWS_STORAGE_BUCKET_NAME = 'jacknelson-heroku'
 AWS_QUERYSTRING_AUTH = False
 AWS_QUERYSTRING_EXPIRE = '157784630'
+"""
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -158,5 +157,5 @@ django_heroku.settings(locals())
 #del DATABASES['default']['OPTIONS']['sslmode']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 
