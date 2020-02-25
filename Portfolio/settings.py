@@ -135,13 +135,6 @@ AWS_STORAGE_BUCKET_NAME = 'jacknelson-heroku'
 AWS_QUERYSTRING_AUTH = False
 AWS_QUERYSTRING_EXPIRE = '157784630'
 
-
-"""
-AWS_ACCESS_KEY_ID = os.environ.get('AKIAICONVO3PH323QOHA')
-AWS_SECRET_ACCESS_KEY = os.environ.get('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')
-
-"""
-
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
