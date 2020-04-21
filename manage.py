@@ -3,6 +3,7 @@
 import os
 import sys
 
+# python manage.py runserver --settings=Portfolio.settings_local
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Portfolio.settings')
