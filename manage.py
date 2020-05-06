@@ -6,7 +6,7 @@ import sys
 # python manage.py runserver --settings=Portfolio.settings_local
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Portfolio.settings_local')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Portfolio.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
