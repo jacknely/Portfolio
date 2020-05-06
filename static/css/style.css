@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
 .bg-light {
     background-color: #e9ecef!important;
 }
@@ -15,4 +20,8 @@ p {
 p.front {
     font-size: 1rem!important;
     color: #848484;
+}
+
+.display-3 {
+    font-size: 3rem;
 }
