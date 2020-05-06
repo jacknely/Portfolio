@@ -1,6 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Rajdhani");
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Rajdhani", sans-serif;
+  line-height: 1.4;
 }
 
 .bg-light {
