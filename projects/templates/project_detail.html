@@ -10,19 +10,15 @@
         <div class="col-md-5">
             <h4>Summary:</h4>
             <p>{{ project.summary }}</p>
-            <br>
             <h4>Technology used:</h4>
             <p>{{ project.technology }}</p>
-            <br>
             <h4>Date:</h4>
             <p>{{ project.date|date:"M Y" }}</p>
-            <br>
             {% if project.github|length %}
                 <h4>GitHub:</h4>
                 <p><a href="{{ project.github }}" target="_blank">{{ project.github }}</a></p>
             {% endif %}
             {% if project.link|length %}
-                <br>
                 <h4>Link:</h4>
                 <p><a href="{{ project.link }}" target="_blank">{{ project.link }}</a></p>
             {% endif %}
